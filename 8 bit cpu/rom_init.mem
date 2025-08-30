@@ -1,0 +1,9 @@
+// Format: <Opcode> <Immediate Value>
+// ADDI: Opcode 02, Rdest, Value
+// JMPZ: Opcode 05, Addr
+@00
+02_00_00 // ADDI R0, 0x00  (R0 is our counter, start at 0)
+02_01_80 // ADDI R1, 0x80  (R1 holds the LED output address, 128)
+04_01_00 // STORE R1, R0   (Store value in R0 to address in R1 - lights up LEDs)
+02_00_01 // ADDI R0, 0x01  (Increment the counter R0 by 1)
+05_02_00 // JMPZ 0x02      (Jump back to the STORE instruction - creates an infinite loop)
